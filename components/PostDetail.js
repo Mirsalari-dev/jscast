@@ -80,17 +80,17 @@ const PostDetail = ({ post }) => {
                 alt={post.author.name}
                 height="30px"
                 width="30px"
-                className="align-middle rounded-full"
+                className="align-middle rounded-full ml-2"
                 src={post.author.picture.url}
               />
-              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
+              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg ml-6">
                 {post.author.name}
               </p>
             </div>
             <div className="font-medium text-gray-700">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 inline mr-2 text-pink-500"
+                className="h-6 w-6 inline mr-2 text-pink-500 mb-1 ml-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
