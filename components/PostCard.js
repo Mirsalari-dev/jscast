@@ -16,7 +16,7 @@ const PostCard = ({ post }) => {
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h1>
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
+        <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto ">
           <img
             alt={post.author.name}
             height="30px"
@@ -24,14 +24,14 @@ const PostCard = ({ post }) => {
             className="align-middle rounded-full"
             src={post.author.picture.url}
           />
-          <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">
+          <p className="inline align-middle text-gray-700 mr-2 font-medium text-lg ml-6">
             {post.author.name}
           </p>
         </div>
         <div className="font-medium text-gray-700">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 inline mr-2 text-pink-500"
+            className="h-6 w-6 inline mr-2 text-pink-500 ml-2 mb-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
