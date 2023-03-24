@@ -83,6 +83,7 @@ export const getCategories = async () => {
       category {
         name
         slug
+        slugIcon
       }
     }
   `;
