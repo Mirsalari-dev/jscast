@@ -18,6 +18,9 @@ const FeaturedPostCard = ({ post }) => (
         {post.title}
       </p>
       <div className="flex items-center absolute bottom-5 w-full justify-center">
+      <p className="inline align-middle text-white text-shadow mr-2 font-thin">
+          {post.author.name}
+        </p>
         <Image
           unoptimized
           alt={post.author.name}
@@ -26,9 +29,6 @@ const FeaturedPostCard = ({ post }) => (
           className="align-middle drop-shadow-lg rounded-full"
           src={post.author.picture.url}
         />
-        <p className="inline align-middle text-white text-shadow ml-2 font-medium">
-          {post.author.name}
-        </p>
       </div>
     </div>
     <Link href={`/post/${post.slug}`}>
