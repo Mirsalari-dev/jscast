@@ -83,7 +83,7 @@ const CommentsForm = ({ slug }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-        Leave a Reply
+        ثبت نظر
       </h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <textarea
@@ -92,7 +92,7 @@ const CommentsForm = ({ slug }) => {
           className="p-4 outline-none w-full rounded-lg h-40 focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
           name="comment"
           
-          placeholder="Comment"
+          placeholder="متن کامنت"
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
@@ -101,7 +101,7 @@ const CommentsForm = ({ slug }) => {
           value={formData.name}
           onChange={onInputChange}
           className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-          placeholder="Name"
+          placeholder="نام خود را وارد کنید"
           name="name"
         />
         <input
@@ -109,7 +109,7 @@ const CommentsForm = ({ slug }) => {
           value={formData.email}
           onChange={onInputChange}
           className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
-          placeholder="Email"
+          placeholder="ایمیل خود را وارد کنید"
           name="email"
         />
       </div>
@@ -125,12 +125,12 @@ const CommentsForm = ({ slug }) => {
           />
           <label className="text-gray-500 cursor-pointer" htmlFor="storeData">
             {" "}
-            Save my name, email in this browser for the next time I comment.
+            اسم و ایمیل من را در این مرورگر برای ثبت نظرات بعدی، به یاد داشته باش
           </label>
         </div>
       </div>
       {error && (
-        <p className="text-xs text-red-500">All fields are mandatory</p>
+        <p className="text-xs text-red-500">همه بخش ها را تکمیل کنید</p>
       )}
       <div className="mt-8">
         <button
@@ -138,11 +138,11 @@ const CommentsForm = ({ slug }) => {
           onClick={handlePostSubmission}
           className="transition duration-500 ease hover:bg-indigo-900 inline-block bg-pink-600 text-lg font-medium rounded-full text-white px-8 py-3 cursor-pointer"
         >
-          Post Comment
+          ارسال کامنت
         </button>
         {showSuccessMessage && (
           <span className="text-xl float-right font-semibold mt-3 text-green-500">
-            Comment submitted for review
+            کامنت شما با موفقیت ثبت شد و بعد از تایید نمایش داده می شود
           </span>
         )}
       </div>
