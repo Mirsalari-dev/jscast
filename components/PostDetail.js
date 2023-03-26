@@ -103,7 +103,7 @@ const PostDetail = ({ post }) => {
                 />
               </svg>
               <span className="align-middle">
-                {moment(post.createdAt).format("MMM DD, YYYY")}
+                {post.date}
               </span>
             </div>
           </div>
