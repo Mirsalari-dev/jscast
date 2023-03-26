@@ -5,13 +5,11 @@ import PostCard from "../components/PostCard";
 import PostWidget from "../components/PostWidget";
 import { getPost } from "../services";
 import FeaturedPosts  from "../sections/FeaturedPosts";
+import useTitle from "../helper/useTitle";
 
 export default function Home({posts}) {
-  // const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   getPost().then((newPosts) => setPosts(newPosts));
-  // }, []);
+  useTitle("جی اس کست")
 
   return (
     <div className="container mx-auto px-10 mb-8">

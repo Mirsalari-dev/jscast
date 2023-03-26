@@ -7,8 +7,10 @@ import CommentsForm from "../../components/CommentsForm";
 import Comments from "../../components/Comments";
 import PostWidget from "../../components/PostWidget";
 import Categories from "../../components/Categories";
+import useTitle from "../../helper/useTitle";
 
 const postDetails = ({ post }) => {
+  useTitle(post.title)
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
