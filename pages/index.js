@@ -7,6 +7,7 @@ import { getPost } from "../services";
 import FeaturedPosts from "../sections/FeaturedPosts";
 import useTitle from "../helper/useTitle";
 import Modal from "../helper/Modal";
+import SkeletonPost from "../components/skeleton/SkeletonPost";
 
 export default function Home({ posts }) {
   const [showModal, setShowModal] = useState(true);
@@ -38,6 +39,7 @@ export default function Home({ posts }) {
             {posts.map((post) => (
               <PostCard post={post.node} key={post.title} />
             ))}
+            {!posts && [1, 2, 3, 4].map((item) => <SkeletonPost key={item} />)}
           </div>
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
