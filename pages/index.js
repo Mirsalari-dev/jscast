@@ -53,7 +53,7 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const posts = (await getPost()) || [];
   return {
     props: { posts },
