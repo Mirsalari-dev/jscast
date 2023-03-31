@@ -7,12 +7,20 @@ import CommentsForm from "../../components/CommentsForm";
 import Comments from "../../components/Comments";
 import PostWidget from "../../components/PostWidget";
 import Categories from "../../components/Categories";
+import Head from "next/head";
 
 const postDetails = ({ post }) => {
   return (
     <>
       {post && (
         <div className="container mx-auto px-10 mb-8">
+          <Head>
+            <title>{post.title}</title>
+            <link
+              rel="icon"
+              href="https://upload.wikimedia.org/wikipedia/commons/5/57/Code.svg"
+            />
+          </Head>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="col-span-1 lg:col-span-8">
               <PostDetail post={post} />
