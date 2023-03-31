@@ -7,6 +7,7 @@ import CommentsForm from "../../components/CommentsForm";
 import Comments from "../../components/Comments";
 import PostWidget from "../../components/PostWidget";
 import Categories from "../../components/Categories";
+import Head from "next/head";
 
 const postDetails = ({ post }) => {
   return (
