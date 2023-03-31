@@ -36,11 +36,11 @@ export default function Home({ posts }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
           <div className="lg:col-span-8 col-span-1">
+            {!posts && [1, 2, 3, 4].map((item) => <SkeletonPost key={item} />)}
             {posts &&
               posts.map((post) => (
                 <PostCard post={post.node} key={post.title} />
               ))}
-            {!posts && [1, 2, 3, 4].map((item) => <SkeletonPost key={item} />)}
           </div>
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
@@ -55,14 +55,8 @@ export default function Home({ posts }) {
 }
 
 export async function getServerSideProps() {
-  try {
-    const posts = await getPost();
-    return {
-      props: { posts: posts },
-    };
-  } catch (err) {
-    return {
-      props: { posts: null },
-    };
-  }
+  const posts = (await getPost()) || [];
+  return {
+    props: { posts },
+  };
 }
