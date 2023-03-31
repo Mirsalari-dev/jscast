@@ -54,8 +54,18 @@ export default function Home({ posts }) {
 }
 
 export async function getServerSideProps() {
-  const posts = (await getPost()) || [];
-  return {
-    props: { posts },
-  };
+  // const posts = (await getPost()) || [];
+  // return {
+  //   props: { posts:posts },
+  // };
+  try {
+    const posts = await getPost();
+    return {
+      props: { posts: posts },
+    };
+  } catch (err) {
+    return {
+      props: { posts: [] },
+    };
+  }
 }
