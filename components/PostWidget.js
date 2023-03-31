@@ -36,9 +36,9 @@ const PostWidget = ({ slug, category }) => {
             <p className="text-gray-500 font-xs">
               {post.date}
             </p>
-            <a href={`/post/${post.slug}`} className="text-md" key={index}>
+            <Link href={`/post/${post.slug}`} className="text-md" key={index}>
               {post.title}
-            </a>
+            </Link>
           </div>
         </div>
       ))}
