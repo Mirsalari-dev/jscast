@@ -7,7 +7,7 @@ import { getPost } from "../services";
 import FeaturedPosts from "../sections/FeaturedPosts";
 import useTitle from "../helper/useTitle";
 import Modal from "../helper/Modal";
-import SkeletonPost from "../components/skeleton/SkeletonPost";
+import SkeletonPost from "../components/Skeleton/SkeletonPost";
 
 export default function Home({ posts }) {
   const [showModal, setShowModal] = useState(true);
