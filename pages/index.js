@@ -29,7 +29,6 @@ export default function Home({ posts }) {
           href="https://upload.wikimedia.org/wikipedia/commons/5/57/Code.svg"
         />
       </Head>
-      <div>
         <FeaturedPosts />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
           <div className="lg:col-span-8 col-span-1">
@@ -46,7 +45,6 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }

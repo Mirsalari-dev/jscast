@@ -28,17 +28,24 @@ const FeaturedPosts = () => {
   const [featuredPosts, setFeaturedPosts] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
 
-  useEffect(async () => {
+  useEffect(() => {
     // getFeaturedPosts().then((result) => {
     //   setFeaturedPosts(result);
     //   setDataLoaded(true);
     // });
-    const fetchData = async () => {
-      const featuredPost = await getFeaturedPosts();
-      setFeaturedPosts(featuredPost);
-      setDataLoaded(true);
-    };
-    fetchData();
+
+    try {
+      const fetchData = async () => {
+        setDataLoaded(false);
+        const featuredPost = (await getFeaturedPosts()) || null;
+        setFeaturedPosts(featuredPost);
+        setDataLoaded(true);
+      };
+      fetchData();
+    } catch (error) {
+      setFeaturedPosts([]);
+      setDataLoaded(false);
+    }
   }, []);
 
   const customLeftArrow = (
@@ -93,7 +100,7 @@ const FeaturedPosts = () => {
             <FeaturedPostCard key={index} post={post} />
           ))}
         {!dataLoaded &&
-          [1, 2, 3, 4, 5].map((item) => <SkeletonFeaturedPosts key={item} />)}
+          [1, 2, 3, 4].map((item) => <SkeletonFeaturedPosts key={item} />)}
       </Carousel>
     </div>
   );
