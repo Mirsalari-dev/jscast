@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
 import FeaturedPostCard from "../components/FeaturedPostCard";
+import SkeletonFeaturedPosts from "../components/Skeleton/SkeletonFeaturedPosts";
 import { getFeaturedPosts } from "../services";
 
 const responsive = {
@@ -86,6 +86,8 @@ const FeaturedPosts = () => {
           featuredPosts.map((post, index) => (
             <FeaturedPostCard key={index} post={post} />
           ))}
+        {!dataLoaded &&
+          [1, 2, 3, 4, 5].map((item) => <SkeletonFeaturedPosts key={item} />)}
       </Carousel>
     </div>
   );

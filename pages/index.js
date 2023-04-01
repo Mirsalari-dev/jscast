@@ -6,7 +6,6 @@ import PostWidget from "../components/PostWidget";
 import { getPost } from "../services";
 import FeaturedPosts from "../sections/FeaturedPosts";
 import useTitle from "../helper/useTitle";
-import Modal from "../helper/Modal";
 import SkeletonPost from "../components/Skeleton/SkeletonPost";
 
 export default function Home({ posts }) {
@@ -30,10 +29,8 @@ export default function Home({ posts }) {
           href="https://upload.wikimedia.org/wikipedia/commons/5/57/Code.svg"
         />
       </Head>
-      {showModal && <Modal setShowModal={setShowModal} />}
-      <div style={{ opacity: `${showModal ? 0.1 : 1}` }}>
+      <div>
         <FeaturedPosts />
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
           <div className="lg:col-span-8 col-span-1">
             {!posts && [1, 2, 3, 4].map((item) => <SkeletonPost key={item} />)}
