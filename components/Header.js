@@ -23,7 +23,7 @@ const Header = () => {
             </Link>
           ))}
         </div>
-        <div className="md:float-right block">
+        <div className="md:float-right block text-center">
           <Link href="/">
             <span className="cursor-pointer font-bold text-4xl text-white ">
               جـی اس کـسـت

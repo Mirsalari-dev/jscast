@@ -6,6 +6,7 @@ import PostWidget from "../components/PostWidget";
 import { getPost } from "../services";
 import FeaturedPosts from "../sections/FeaturedPosts";
 import SkeletonPost from "../components/Skeleton/SkeletonPost";
+import Modal from "../components/Modal/Modal";
 
 export default function Home({ posts, error }) {
   const [showModal, setShowModal] = useState(true);
@@ -13,7 +14,7 @@ export default function Home({ posts, error }) {
   useEffect(() => {
     const interval = setTimeout(() => {
       setShowModal(false);
-    }, 12000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [showModal]);
 
@@ -26,6 +27,7 @@ export default function Home({ posts, error }) {
           href="https://upload.wikimedia.org/wikipedia/commons/5/57/Code.svg"
         />
       </Head>
+      {showModal && <Modal setShowModal={setShowModal} />}
       <FeaturedPosts />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
         <div className="lg:col-span-8 col-span-1">
