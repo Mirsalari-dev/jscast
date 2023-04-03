@@ -100,7 +100,7 @@ const FeaturedPosts = () => {
             <FeaturedPostCard key={index} post={post} />
           ))}
         {!dataLoaded &&
-          [1, 2, 3, 4].map((item) => <SkeletonFeaturedPosts key={item} />)}
+          [1, 2, 3, 4,5].map((item) => <SkeletonFeaturedPosts key={item} />)}
       </Carousel>
     </div>
   );
