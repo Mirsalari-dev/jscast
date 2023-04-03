@@ -14,7 +14,7 @@ const FeaturedPostCard = ({ post }) => (
       <span className="text-white mb-4 text-shadow font-semibold text-xs">
         {post.date.slice(2)}
       </span>
-      <p className="text-white mb-4 text-shadow font-semibold text-2xl text-center">
+      <p style={{direction:"rtl"}} className="text-white mb-4 text-shadow font-semibold text-2xl text-center">
         {post.title}
       </p>
       <div className="flex items-center absolute bottom-5 w-full justify-center">
