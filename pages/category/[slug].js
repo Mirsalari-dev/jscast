@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { getCategories, getCategoryDetails } from "../../services";
 import Head from "next/head";
 import SkeletonPost from "../../components/Skeleton/SkeletonPost";
@@ -7,20 +7,18 @@ import PostCard from "../../components/PostCard";
 import Categories from "../../components/Categories";
 
 const categoryDetails = ({ category, error }) => {
-  useEffect(() => {
-    console.log(category[0]);
-  }, []);
+
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
-        <title>{category[0].name}</title>
+        <title>{category && category[0].name}</title>
         <link
           rel="icon"
           href="https://upload.wikimedia.org/wikipedia/commons/5/57/Code.svg"
         />
       </Head>
       <div className="bg-white text-center shadow-lg rounded-lg p-8 mb-8">
-        <span className="text-center"> مطالب آموزشی {category[0].name}</span>
+        <span className="text-center"> مطالب آموزشی {category && category[0].name}</span>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 ">
         <div className="lg:col-span-8 col-span-1">
