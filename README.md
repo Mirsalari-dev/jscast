@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" id="title">JS cast Blog</h1>
 
-## Getting Started
+<p align="center"><br />
+<br />
 
-First, run the development server:
+<p id="description">Making a simple blog that used hygraph server as cms! In making this blog, I used GraphQl technology as api. This blog has also benefited from the ssr feature in NextJS
+</p>
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
+<h2>🚀 Demo</h2>
+
+[https://courageous-beignet-06325f.netlify.app//](https://courageous-beignet-06325f.netlify.app/)
+
+<h2>Project Screenshots:</h2>
+<br />
+<img src="https://www.uplooder.net/img/image/15/4a2808189bd713c8c8caf66925be21d0/Screenshot-2024-01-15-142329.png" alt="project-screenshot" width="auto" height="auto/">
+<br />
+<br />
+
+  
+  
+<h2>🧐 Features</h2>
+
+Here're some of the project's best features:
+
+*   Beautifully responsive on mobile and desktop
+*   Used hygraph server as graphql cms
+*   benefited from the ssr feature in NextJS
+*  Using react-multi-carousel to display the slider  
+<br />
+
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. git clone</p>
+
+```
+https://github.com/AmirhosseinMirsalari/jscast.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p>2. npm install</p>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<p>3. npm start</p>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+  
+  <br />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<h2>💻 Built with</h2>
 
-## Learn More
+Technologies used in the project:
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+*   Nextjs
+*   Webpack
+*   tailwindcss
+*   react-multi-carousel
+*   moment
+*   graphql
+*   nprogress
