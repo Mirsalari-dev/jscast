@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the source files into the image.
 COPY . .
 
+# Copy the .env file into the image
+COPY .env .env
+
 # Expose the port that the application listens on.
 EXPOSE 3000
 
