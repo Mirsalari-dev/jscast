@@ -1,5 +1,6 @@
 # inherit from a existing image to add the functionality
 FROM node:20-alpine3.18
+
 # Set the working directory and assign ownership to the non-root user
 WORKDIR /app
 
@@ -12,9 +13,14 @@ RUN npm install
 # Copy the rest of the source files into the image.
 COPY . .
 
+# Copy the .env file into the image
+COPY .env .env
+
 # Expose the port that the application listens on.
 EXPOSE 3000
 
+# Build the application.
 RUN npm run build
+
 # Run the application.
-CMD npm start
+CMD ["npm", "start"]
