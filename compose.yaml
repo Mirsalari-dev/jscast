@@ -1,32 +1,49 @@
-# define the services/containers to be run
+version: '3.8'
+
 services:
-  # define the application container/service
-  # we can use any name for the service. Here it is `web`
-  # we can create multiple services as well
-  web:
-    # specify the image to build the container from
-    # this can be any image available in docker hub or a custom one or the one we want to build
+  frontend:
+    # uncomment the following line if you want to run a local instance of MongoDB
+    # depends_on:
+    #   - db
     build:
-      # specify the path to the Dockerfile
       context: .
-      # specify the file name (optional)
       dockerfile: Dockerfile
     
-    # specify the port mapping from host to the container
-    # this is similar to the -p flag in `docker run` command
-    # first port is the port on host machine and the second is the port inside the container
+    # do port mapping so that we can access the app from the browser
     ports:
       - 3000:3000
+    
+    # use docker compose to watch for changes and rebuild the container
+    develop:
+      watch:
+        - path: ./package.json
+          action: rebuild
+        - path: ./next.config.js
+          action: rebuild
+        - path: ./package-lock.json
+          action: rebuild
+        - path: .
+          target: /app
+          action: sync
+    
+    # define the environment variables
+    environment:
+      # we're using MongoDB atlas so we need to pass in the connection string
+      ESLINT_NO_DEV_ERRORS: true
+      NEXT_PUBLIC_GRAPHCMS_ENDPOINT: https://api-us-east-1.hygraph.com/v2/cl9kf6sj333v001uhfd04gtrw/master
+      GRAPHCMS_TOKEN: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2NjY0NzMzMjYsImF1ZCI6WyJodHRwczovL2FwaS11cy1lYXN0LTEuaHlncmFwaC5jb20vdjIvY2w5a2Y2c2ozMzN2MDAxdWhmZDA0Z3Rydy9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiNjVlYjJkYjItNmJkNC00N2ZmLWJmZWItNjVlM2M2N2MyMTRiIiwianRpIjoiY2thNWoyZW9iMDN0YzAxd2gwZGZkNjdyeSJ9.LHF-jXHYV8P0YExneywYo4BdddFju1Efsf-FPiGtgZ5-Nbwt6gg4ulF0OQZJdoL8xvlJp2uQwmB_5P_GdRIvw2guscOW6u58xgJe7y46HparWyq6chR2FXwtlFzp5YghPOxcJLp1FHWRN46TJK4XgAeb9CKj0HD4R5OJopOLVxgsaPI2h0jqJkHGMBKe04ea-Eupkg9tW4wunSs25d0LpdSA2VD8EyrKiOlcHmcQ0IGpbr9n3vHk4UoclZyFTLXqZFdE5Fomd333UJdKosCvl6fiWOkSoy8PEoexjA79A6l5C06iymVwlwVTMfbnwtNz2LcHKE7mBiILz2Yr38GTmHsibaK4-O1ZMWpg3v2_1reFO0Jy5Mm-jNMxOQQ7OZpjPvzqTaL-GlzQfd8Cum3nyx7QBCP_UXeXvjjCYgJ899m2We9WBXkFRmicNxu67XH7rA_lYw2r9SAH6WNy57smOMNBmyrBXcZ3DgTrIH_Qrs8xp5UcqMGpJ2giScwLkD7kwmq2q1gi-V_ABijGidTzDIOntroURToPAyvEr4l3EifyAh55JP8b46oueMg_QTt10OirWPi4Xwds8fldUGrvuLiOt9XkFAF9qkW_zg2kLcA6mg8zE8rX8iTy4IxW4ERJ-vuxtMwmievE8Sv-TAwFvwv9dmtzIiOkEEHaJxNT2qc
 
-    # specify the volumes to mount
-    # what this does is it mounts the current directory to the `/app` directory inside the container. 
-    # due to this, any changes made to the files in the current directory will be reflected inside the container. It is similar to the -v flag in `docker run` command. 
-    # even if a container is stopped or deleted, volumes are not deleted and can be used by other containers as well.
-    volumes:
-      # over here, we are mounting the current directory to the `/app` directory inside the container (which is the working directory of the container)
-      # syntax is `<path to the directory on host>:<path to the directory inside the container>`
-      # we're doing this because we want to reflect the changes made to the files in the current directory inside the container
-      - .:/app
-      # we also mount the node_modules directory inside the container at /app/node_modules. This is done to avoid installing the node_modules inside the container. 
-      # node_modules will be installed on the host machine and mounted inside the container
-      - /app/node_modules
+  # we're using MongoDB atlas so we don't need to run a local instance of MongoDB
+  # but if you want to run a local instance, you can do it this way
+  # db:
+  #   image: mongo
+  #   ports:
+  #     - 27017:27017
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=sujata
+  #     - MONGO_INITDB_ROOT_PASSWORD=rnZzJjIDr3bIDymV
+  #   volumes:
+  #     - tasked:/data/db
+    
+volumes:
+  tasked:
