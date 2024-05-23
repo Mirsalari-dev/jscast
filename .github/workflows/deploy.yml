@@ -17,7 +17,11 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Build Docker image
-      run: docker build --build-arg NEXT_PUBLIC_GRAPHCMS_ENDPOINT=${{ secrets.NEXT_PUBLIC_GRAPHCMS_ENDPOINT }} --build-arg GRAPHCMS_TOKEN=${{ secrets.GRAPHCMS_TOKEN }} -t my-app .
+      run: |
+        docker build \
+          --build-arg NEXT_PUBLIC_GRAPHCMS_ENDPOINT=${{ secrets.NEXT_PUBLIC_GRAPHCMS_ENDPOINT }} \
+          --build-arg GRAPHCMS_TOKEN=${{ secrets.GRAPHCMS_TOKEN }} \
+          -t my-app .
 
     - name: Tag Docker image
       run: docker tag my-app ${{ secrets.DOCKER_HUB_USERNAME }}/my-app:latest

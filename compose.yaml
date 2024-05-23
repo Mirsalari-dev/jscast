@@ -9,5 +9,8 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+    environment:
+      - NEXT_PUBLIC_GRAPHCMS_ENDPOINT=${NEXT_PUBLIC_GRAPHCMS_ENDPOINT}
+      - GRAPHCMS_TOKEN=${GRAPHCMS_TOKEN}
     env_file:
       - .env

@@ -1,4 +1,4 @@
-# inherit from a existing image to add the functionality
+# inherit from an existing image to add the functionality
 FROM node:20-alpine3.18
 
 # Set the working directory and assign ownership to the non-root user
@@ -6,6 +6,14 @@ WORKDIR /app
 
 # Copy the package.json and package-lock.json files into the image.
 COPY package*.json ./
+
+# Define build arguments and use them
+ARG NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+ARG GRAPHCMS_TOKEN
+
+# Export build arguments as environment variables
+ENV NEXT_PUBLIC_GRAPHCMS_ENDPOINT=$NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+ENV GRAPHCMS_TOKEN=$GRAPHCMS_TOKEN
 
 # Install the dependencies.
 RUN npm install
