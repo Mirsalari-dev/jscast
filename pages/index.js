@@ -40,7 +40,6 @@ export default function Home({ posts, error }) {
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
             <PostWidget />
-            <p>test mikonam</p>
             <Categories />
           </div>
         </div>
