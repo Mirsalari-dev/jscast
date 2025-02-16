@@ -12,9 +12,7 @@
 [https://courageous-beignet-06325f.netlify.app//](https://courageous-beignet-06325f.netlify.app/)
 
 <h2>Project Screenshots:</h2>
-<br />
-<img src="https://www.uplooder.net/img/image/15/4a2808189bd713c8c8caf66925be21d0/Screenshot-2024-01-15-142329.png" alt="project-screenshot" width="auto" height="auto/">
-<br />
+
 <br />
 
   
@@ -34,7 +32,7 @@ Here're some of the project's best features:
 <p>1. git clone</p>
 
 ```
-https://github.com/AmirhosseinMirsalari/jscast.git
+https://github.com/Mirsalari-dev/jscast.git
 ```
 
 <p>2. npm install</p>
